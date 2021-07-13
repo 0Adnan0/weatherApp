@@ -5,6 +5,7 @@ const fs = require('fs');
 const hbs = require('hbs');
 const requests = require('requests');
 const data = fs.readFileSync("userApi/userData.json","utf-8");
+const port = process.env.PORT || 8000;
 
 let colorStyle = "";
 
@@ -45,6 +46,6 @@ app.get("*",(req,res)=>{
         
     });
 })
-app.listen(8000,()=>{
+app.listen(port,()=>{
     console.log("listening 8000")
 })
