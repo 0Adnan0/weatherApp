@@ -49,7 +49,7 @@ const getInfo = async()=>{
         quote.classList.add('hidden'); 
         temp.innerHTML = "Loading..."; 
         locationUsed.innerText = "Loading...";
-        let url = `http://api.openweathermap.org/data/2.5/weather?q=${city_Name}&appid=f3efe161ff0aa76b321eba4d11a14c3a`;
+        let url = `https://api.openweathermap.org/data/2.5/weather?q=${city_Name}&appid=f3efe161ff0aa76b321eba4d11a14c3a`;
         const res = await fetch(url);
         const data = await res.json();
         const arr = [data];
