@@ -4,7 +4,7 @@ const cityName = document.querySelector('#inp');
 const btn = document.querySelector('#submit-btn');
 const temp = document.querySelector('.temp');
 const locationUsed = document.querySelector('.location');
-
+const quote = document.querySelector('.quote');
 
 let tempStatus = "Clouds";
 let weekday = new Array(7);
@@ -33,20 +33,27 @@ const getCurrentDay = () => {
 }
 
 getCurrentDay();
-
-const getInfo = async(event)=>{
-    event.preventDefault();
-   let city_Name = cityName.value;
+let city_Name = "";
+const getInfo = async()=>{
    
+    if(cityName.value == ""){
+        city_Name = "Pune"
+    }else{
+       city_Name = cityName.value;
+    }
     if(city_Name == ""){
         alert('Please Write correct city Name');
-        
+        quote.classList.remove('hidden');
     }else{
-      try{ let url = `http://api.openweathermap.org/data/2.5/weather?q=${city_Name}&appid=f3efe161ff0aa76b321eba4d11a14c3a`;
+      try{ 
+        quote.classList.add('hidden'); 
+        temp.innerHTML = "Loading..."; 
+        locationUsed.innerText = "Loading...";
+        let url = `http://api.openweathermap.org/data/2.5/weather?q=${city_Name}&appid=f3efe161ff0aa76b321eba4d11a14c3a`;
         const res = await fetch(url);
         const data = await res.json();
         const arr = [data];
-        temp.innerHTML = (arr[0].main.temp -273.15).toFixed(2);
+        temp.innerHTML = (arr[0].main.temp -273.15).toFixed(2) + "°C";
         locationUsed.innerText = `${arr[0].name},${arr[0].sys.country}`;
 
     }catch{
@@ -56,4 +63,4 @@ const getInfo = async(event)=>{
 }
 
 btn.addEventListener('click', getInfo);
-
+getInfo();

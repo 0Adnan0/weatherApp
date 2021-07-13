@@ -88,3 +88,31 @@ body{
     color: grey;
     
 }
+.hidden{
+    display: none;
+}
+#inp{
+    border-radius: 50px;
+    border: none;
+    border: 2px solid black;
+    width: auto;
+    padding: 10px;
+    font-size: 15px;
+    text-align: center;
+
+}
+#inp:focus{
+    outline: none;
+    
+}
+#submit-btn{
+    padding: 10px;
+    border-radius: 50px;
+    border: 2px solid skyblue;
+    background: transparent;
+    transition: 0.2s linear;
+}
+#submit-btn:hover{
+    background-color: skyblue;
+
+}
