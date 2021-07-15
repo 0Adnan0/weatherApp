@@ -116,3 +116,17 @@ body{
     background-color: skyblue;
 
 }
+.animation{
+   animation: animate 1.3s infinite ;
+}
+@keyframes animate{
+  0%{
+      opacity: 1;
+  }
+  50%{
+      opacity: 0.2;
+  }
+  100%{
+      opacity: 1;
+  }
+}
